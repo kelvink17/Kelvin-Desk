@@ -49,7 +49,7 @@ export const updateTicket = async (req: Request, res: Response) => {
         const {id} = req.body
        const { title, description } = req.body;
         const updateTicket = await Ticket.findByIdAndUpdate(
-            id, {title, description}, {new: true,}
+            id, {title, description}, {returnDocument: "after"}
         );
         res.json(updateTicket)
     } catch (error) {
